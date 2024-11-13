@@ -6,12 +6,12 @@ import Home from './component/Home';
 
 const App = () => {
 
-  const [display,setDisplay] = useState(false)
-  const [showH,setShowH] = useState(false)
+  const [isRegistered,setIsRegistered] = useState(false)
+  const [showHome,setShowHome] = useState(false)
 
   return (
     <>
-    {display ? (showH ? <Home setDisplay={setDisplay} setShowH={setShowH}/> : <Login setShowH={setShowH}/> ) : <Signup setDisplay={setDisplay}/>}
+    {isRegistered ? (showHome ? <Home setIsRegistered={setIsRegistered} setShowHome={setShowHome}/> : <Login setShowHome={setShowHome}/> ) : <Signup setIsRegistered={setIsRegistered}/>}
     {}
     </>
   )

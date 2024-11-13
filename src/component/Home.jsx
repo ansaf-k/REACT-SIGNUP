@@ -1,18 +1,18 @@
 /* eslint-disable react/prop-types */
 
 
-const Home = ({ setDisplay,setShowH }) => {
+const Home = ({ isRegistered,setShowHome }) => {
     const name = JSON.parse(localStorage.getItem('user'));
 
-    const LogoutHandler = () => {
+    const logoutHandler = () => {
       localStorage.removeItem('user');
-      setDisplay(false);
-      setShowH(false);
+      isRegistered(false);
+      setShowHome(false);
     }
   return (
     <div>
         <h1>WELCOME {name.name}</h1>
-        <button style={{color:'red'}} onClick={LogoutHandler}>Delete account</button>
+        <button style={{color:'red'}} onClick={logoutHandler}>Delete account</button>
     </div>
   )
 }

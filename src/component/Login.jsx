@@ -1,7 +1,7 @@
 import { useRef } from "react";
 
 // eslint-disable-next-line react/prop-types
-const Login = ({ setShowH }) => {
+const Login = ({ setShowHome }) => {
 
     const enteredEmail = useRef('');
     const enteredPassword = useRef('');
@@ -16,7 +16,7 @@ const Login = ({ setShowH }) => {
             user.email === enteredEmail.current.value &&
             user.password === enteredPassword.current.value
         ) {
-            setShowH(true)
+            setShowHome(true)
 
         } else {
             alert("please enter valid details")

@@ -1,32 +1,31 @@
 import { useRef } from "react";
 import '../app.css';
 
-// eslint-disable-next-line react/prop-types
-const Signup = ({setDisplay}) => {
+const Signup = ({isRegistered}) => {
 
-    const Email = useRef('');
-    const Password = useRef('');
-    const Name = useRef('');
+    const email = useRef('');
+    const password = useRef('');
+    const name = useRef('');
 
     const SignUphandler = (e) => {
         e.preventDefault();
 
-        const newName = Name.current.value;
-        const newPassword = Password.current.value;
-        const newEmail = Email.current.value;
-        console.log(newName);
+        const enteredName = name.current.value;
+        const enteredPassword = password.current.value;
+        const enteredEmail = email.current.value;
+        console.log(enteredName);
 
-        if(newName === "" || newPassword === "" || newEmail === ""){
+        if(enteredName === "" || enteredPassword === "" || enteredEmail === ""){
             alert('please fill the field');
         }else{
-        const user = { name: newName, email: newEmail, password: newPassword };
+        const user = { name: enteredName, email: enteredEmail, password: enteredPassword };
         localStorage.setItem("user", JSON.stringify(user));
         console.log(user)
         alert("Registration Successful.");
-        Name.current.value = "";
-        Email.current.value = "";
-        Password.current.value = "";
-        setDisplay(true);
+        name.current.value = "";
+        email.current.value = "";
+        password.current.value = "";
+        isRegistered(true);
         }
     }
 
@@ -35,9 +34,9 @@ const Signup = ({setDisplay}) => {
             <div className="login-page">
                 <div className="form">
                     <form className="login-form" onSubmit={SignUphandler}>
-                        <input type="text" placeholder="email" ref={Email} />
-                        <input type="text" placeholder="username" ref={Name} />
-                        <input type="password" placeholder="password" ref={Password} />
+                        <input type="email" required placeholder="email" ref={email} />
+                        <input type="text" required placeholder="username" ref={name} />
+                        <input type="password" required placeholder="password" ref={password} />
                         <button type="submit" >SignUp</button>
                     </form>
                 </div>
